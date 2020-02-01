@@ -1,0 +1,212 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Varela Round', sans-serif;
+}
+h2{
+  font-size: 40px;
+
+}
+.head{
+  background-color: rgb(75, 67, 67);
+  width:100%;
+  height: 40px;
+  position: relative;
+}
+.head p{
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.navbar{
+  box-shadow: 2px 2px 10px lightgray;
+}
+.navbar .navbar-brand,.shape{
+  color: #1b68e4;
+  text-transform: uppercase;
+  font-size: 35px;  
+  font-family: 'Alegreya Sans SC', sans-serif;
+
+}
+
+.navbar .navbar-brand:hover, .shape:hover{
+  color: #1b68e4;
+  text-decoration: none;
+}
+
+#index-nav{
+  margin-left: 30%;
+}
+
+#gym-nav{
+  margin-left: 70%;
+}
+@media(max-width:990px){
+  #gym-nav,#index-nav{
+    margin-left: 40%;
+  }
+}
+.navbar-nav .nav-item .nav-link{
+  color: black;
+  font-size: 15px;
+}
+.navbar-nav .nav-item .nav-link:hover{
+  color: #1b68e4;
+
+}
+.getshape{
+  margin: 8% auto; 
+  color: white;
+}
+.header{
+  background-image: url(../img/gym1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 5%;
+
+}
+
+.search-bar{ 
+  margin: 8% auto; 
+  color: white;
+  text-align: center;
+
+}
+
+.search-bar input{
+  width: 60%;
+  height: 40px;
+  margin: 20px 20%;
+  padding-left: 2%;
+  border-radius: 10px;
+  border:none;
+}
+
+.search-bar button{
+  margin: auto;
+}
+
+.intro{
+  width: 100%;
+  text-align: center;
+  padding: 5% 0;
+}
+
+
+.intro p{
+  font-size: 18px;
+  margin: 2% 10%;
+}
+
+.services{
+  background-color: #1b68e4;
+  color: white;
+  text-align: center;
+  padding: 5% 0;
+}
+
+.services h2{
+  margin-bottom: 5%;
+}
+.services a{
+  margin-top: 2%;
+}
+
+.cities{
+  text-align:center;
+  padding: 5% 0;
+
+}
+
+.cities h2{
+  margin-bottom: 5%;
+}
+.cities h3{
+  margin: 2% 0;
+}
+
+.cities img{
+  height: 300px;
+  width: 90%;
+}
+.register{
+  background-color: #1b68e4;
+  color: white;
+}
+.register img{
+  width: 100%;
+  height: 500px;
+  
+}
+.register h3{
+  margin: 15% 5% 5%;
+  font-size: 40px;
+}
+.register p{
+  margin-left: 5%;
+  font-size: 18px;
+}
+.register a{
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+footer{
+  background-color: black;
+  color:white;
+  padding : 5% 0 3%;
+  text-align: center;
+}
+
+.form-img{
+  width: 60%;
+  margin: 15% 20%;
+  border-radius: 5%;
+}
+.userform{
+  width: 90%;
+  margin:5% auto;
+}
+div .form-group{
+  margin-bottom: 25px;
+}
+.userform input,.userform select{
+  height: 32px;
+}
+.form-button input[type='submit']{
+  margin:0 auto;
+  display: block;
+  height: 40px;
+}
+#google{
+  margin-top:20px;
+}
+#google img{
+  height: 35px;
+  width: 35px;
+  margin: 0 15px;
+}
+#account{
+  text-align: center;
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+.gym-details{
+  width: 96vw;
+  margin: 2%;
+  box-shadow: 2px 2px 10px gray;
+  padding: 2% 0;
+  font-size: 16px;
+}
+.gym-img{
+  margin:auto;
+}
+.gym-name{
+  font-size: 26px;
+  font-weight: bold;
+}
+.gym-address,.gym-email,.gym-book,.gym-status{
+  margin:2% 0;
+}
