@@ -47,7 +47,7 @@ class HomeController extends Controller
         if($category == 'all'){
             $events = Event::all();
             // dd($events);
-            return view('admin.events')->with(array('events'=>$events))->get();
+            return view('admin.events')->with(array('events'=>$events));
         }
             $events = Event::all();
             return view('admin.events')->with(array('events'=>$events));

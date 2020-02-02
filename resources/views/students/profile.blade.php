@@ -34,7 +34,7 @@
                                                 <td>{{$student->dept}}</td>
                                                 <td>{{$student->year}}</td>
                                                 <td>
-                                                <a href = "{{action('StudentController@editprofile',$student)}}">
+                                                <a href = "{{action('StudentController@editprofile')}}">
                                                 Edit 
                                                 </a>
                                                 </td>                                           

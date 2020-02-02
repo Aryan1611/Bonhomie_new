@@ -144,8 +144,6 @@ class StudentController extends Controller
         $branch = $request->input('branch');
         $year = $request->input('year');
 
-        $coordinators = Student::all()->where('role','coordinator');
-        return view('admin.coordinators')->with('coordinators',$coordinators);
 
         if($branch == 'all' and $year == 'all'){
             $coordinators = Student::all()->where('role','coordinator');
@@ -187,9 +185,9 @@ class StudentController extends Controller
         return redirect()->route('profile');
     }
 
-    public function editprofile(Student $student)
+    public function editprofile()
     {      
-        $student = $student->first();
+        $student = Student::where("id", session('user_id'))->first();
         return view('students.editprofile')->with('student',$student);
     }
 }
