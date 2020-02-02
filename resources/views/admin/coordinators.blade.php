@@ -22,6 +22,29 @@
                     <div class="col-sm-12">
                         <div class="white-box">
                             <h3 class="box-title">Coordinators</h3>
+                            <form action='/coordinators' method="POST">
+                                @csrf
+                                <label>Branch</label>
+                                    <select name="branch" old>
+                                        <option value="all">All</option>
+                                        <option value="CO">Computer</option>
+                                        <option value="ME">Mechanics</option>
+                                        <option value="CE">Civil</option>
+                                        <option value="EE">Extc</option>
+                                        <option value="EXTC">Electrical</option>
+                                        <option value="PHARM">Pharmacy</option>
+                                        <option value="ARCH">Architecture</option>
+                                    </select>
+                                    <label>Year</label>
+                                        <select name="year" old>
+                                            <option value="all">All</option>
+                                            <option value="1">First</option>
+                                            <option value="2">Second</option>
+                                            <option value="3">Third</option>
+                                            <option value="4">Fourth</option>
+                                        </select>
+                                    <input type="submit" value="Go" class="btn btn-primary">
+                            </form>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -53,6 +76,13 @@
                                         @php
                                             $no = 0;
                                         @endphp
+                                         @if(count($student) == 0)                                         
+                                         <tr>
+                                             <td >
+                                             NO STUDENTS AVAILABLE
+                                             </td>
+                                             </tr>
+                                         @else
                                         @foreach ($coordinators as $c)
                                             <tr>
                                                 <td>@php echo ++$no @endphp</td>
@@ -71,6 +101,7 @@
                                                 </td>                                           
                                             </tr>      
                                         @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

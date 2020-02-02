@@ -115,4 +115,53 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->back();
     }
-}
+
+    public function filterStudents(Request $request){
+        $branch = $request->input('branch');
+        $year = $request->input('year');
+
+        if($branch and $year == 'all'){
+            $student = Student::all();
+            return view('admin.participants')->with(array('student'=>$student));
+        }
+        else if($branch == 'all' and $year != 'all'){
+            $student = Student::where('year', $year)->get();
+            return view('admin.participants')->with(array('student'=>$student));
+        }
+        else if($branch != 'all' and $year == 'all'){
+            $student = Student::where('dept', $branch)->get();
+            return view('admin.participants')->with(array('student'=>$student));
+        }
+        
+        $student = Student::where('dept',$branch)->where('year', $year)->get();
+
+
+        return view('admin.participants')->with(array('student'=>$student));
+        
+    }
+    public function filterCoordinators(Request $request){
+
+        $branch = $request->input('branch');
+        $year = $request->input('year');
+
+        $coordinators = Student::all()->where('role','coordinator');
+        return view('admin.coordinators')->with('coordinators',$coordinators);
+
+        if($branch and $year == 'all'){
+            $coordinators = Student::all()->where('role','coordinator');
+            return view('admin.coordinators')->with(array('coordinators'=>$coordinators));
+        }
+        else if($branch == 'all' and $year != 'all'){
+            $coordinators = Student::where('year', $year)->where('role','coordinator')->get();
+            return view('admin.coordinators')->with(array('coordinators'=>$coordinators));
+        }
+        else if($branch != 'all' and $year == 'all'){
+            $coordinators = Student::where('dept', $branch)->where('role','coordinator')->get();
+            return view('admin.coordinators')->with(array('coordinators'=>$coordinators));
+        }
+        
+        $coordinators = Student::where('dept',$branch)->where('year', $year)->where('role','coordinator')->get();
+        return view('admin.coordinators')->with(array('coordinators'=>$coordinators));
+
+        }
+    }

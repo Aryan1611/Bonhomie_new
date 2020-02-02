@@ -4,13 +4,12 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/', function () {
-    return view('welcome');
+    return view('students.index');
 })->name('index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 //User Authentication Routes
 Route::get('/registration', 'StudentController@index')->name('registration');
@@ -28,6 +27,9 @@ Route::get('/coordinators','HomeController@view_coordinators');
 Route::get('/requests','HomeController@view_requests');
 Route::get('/participants','HomeController@view_participants');
 
+//Admin filter
+Route::post('/participants','StudentController@filterStudents');
+Route::post('/coordinators','StudentController@filterCoordinators');
 
 
 //Main Routes

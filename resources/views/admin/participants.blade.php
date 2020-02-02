@@ -7,7 +7,30 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Students</h4>
+                        <h4 class="page-title">Filter Result</h4>
+                        <form action='/participants' method="POST">
+                            @csrf
+                            <label>Branch</label>
+                                <select name="branch" old>
+                                    <option value="all">All</option>
+                                    <option value="CO">Computer</option>
+                                    <option value="ME">Mechanics</option>
+                                    <option value="CE">Civil</option>
+                                    <option value="EE">Extc</option>
+                                    <option value="EXTC">Electrical</option>
+                                    <option value="PHARM">Pharmacy</option>
+                                    <option value="ARCH">Architecture</option>
+                                </select>
+                                <label>Year</label>
+                                    <select name="year" old>
+                                        <option value="all">All</option>
+                                        <option value="1">First</option>
+                                        <option value="2">Second</option>
+                                        <option value="3">Third</option>
+                                        <option value="4">Fourth</option>
+                                    </select>
+                                <input type="submit" value="Go" class="btn btn-primary">
+                        </form>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
@@ -53,6 +76,13 @@
                                         @php
                                             $no = 0;
                                         @endphp
+                                        @if(count($student) == 0)                                         
+                                        <tr>
+                                            <td >
+                                            NO STUDENTS AVAILABLE
+                                            </td>
+                                            </tr>
+                                        @else
                                         @foreach ($student as $s)
                                             <tr>
                                                 <td>@php echo ++$no @endphp</td>
@@ -71,6 +101,9 @@
                                                 </td>                                           
                                             </tr>      
                                         @endforeach
+                                        
+                                                                               
+                                         @endif
                                     </tbody>
                                 </table>
                             </div>
