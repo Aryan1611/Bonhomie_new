@@ -120,7 +120,7 @@ class StudentController extends Controller
         $branch = $request->input('branch');
         $year = $request->input('year');
 
-        if($branch and $year == 'all'){
+        if($branch == 'all' and $year == 'all'){
             $student = Student::all();
             return view('admin.participants')->with(array('student'=>$student));
         }
@@ -147,7 +147,7 @@ class StudentController extends Controller
         $coordinators = Student::all()->where('role','coordinator');
         return view('admin.coordinators')->with('coordinators',$coordinators);
 
-        if($branch and $year == 'all'){
+        if($branch == 'all' and $year == 'all'){
             $coordinators = Student::all()->where('role','coordinator');
             return view('admin.coordinators')->with(array('coordinators'=>$coordinators));
         }

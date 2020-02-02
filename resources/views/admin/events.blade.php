@@ -8,6 +8,18 @@
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Events</h4>
+                        <form action='/allevents' method="POST">
+                            @csrf
+                            <label>Category</label>
+                                <select name="category" old>
+                                    <option value="all">All</option>
+                                    <option value="Technical">Technical</option>
+                                    <option value="Cultural">Cultural</option>
+                                    <option value="Sports">Sports</option>   
+                                    
+                                </select>
+                                <input type="submit" value="Go" class="btn btn-primary">
+                        </form>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
@@ -21,7 +33,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
+                            
                             <h3 class="box-title">Events</h3>
+                            
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
@@ -55,6 +69,13 @@
                                         @php
                                             $no = 0;
                                         @endphp
+                                        @if(count($events) == 0)                                         
+                                        <tr>
+                                            <td>
+                                            NO EVENTS AVAILABLE
+                                            </td>
+                                            </tr>
+                                        @else
                                         @foreach ($events as $e)
                                             <tr>
                                                 <td>@php echo ++$no @endphp</td>
@@ -76,6 +97,7 @@
                                                 </td>                                           
                                             </tr>      
                                         @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

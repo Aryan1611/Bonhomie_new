@@ -77,6 +77,9 @@
                     <li>
                         <a href="/requests" class="waves-effect"><i class="fa fa-male fa-fw" aria-hidden="true"></i>Requests</a>
                     </li>
+                    <li>
+                        <a href="/participation" class="waves-effect"><i class="fa fa-male fa-fw" aria-hidden="true"></i>Participation</a>
+                    </li>
                     
                     <li>
                         <a class="waves-effect" href="{{ route('logout') }}"

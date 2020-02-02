@@ -25,11 +25,15 @@ Route::get('/addevent','HomeController@view_addevent');
 Route::get('/coordinators','HomeController@view_coordinators');
 Route::get('/requests','HomeController@view_requests');
 Route::get('/participants','HomeController@view_participants');
+Route::get('/participation','HomeController@participation');
 
 
 //Admin filter
 Route::post('/participants','StudentController@filterStudents');
 Route::post('/coordinators','StudentController@filterCoordinators');
+Route::post('/allevents','HomeController@index');
+
+
 
 //Student
 Route::resource('student','StudentController');
