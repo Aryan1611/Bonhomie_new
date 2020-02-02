@@ -164,4 +164,32 @@ class StudentController extends Controller
         return view('admin.coordinators')->with(array('coordinators'=>$coordinators));
 
         }
+
+    public function profile()
+    {
+        $student = Student::where('id',session('user_id'))->first();
+        return view('students.profile')->with('student',$student);
     }
+
+    public function updateprofile(Request $request)
+    {       
+        // dd($request->name);   
+        $student = Student::where("id", session('user_id'))->first();
+        $student->name = $request->name;
+        $student->phone = $request->phone;
+        $student->email = $request->email;
+        $student->rollno = $request->rollno; 
+        $student->dept = $request->dept;
+        $student->year = $request->year;
+        $student->save();
+
+
+        return redirect()->route('profile');
+    }
+
+    public function editprofile(Student $student)
+    {      
+        $student = $student->first();
+        return view('students.editprofile')->with('student',$student);
+    }
+}

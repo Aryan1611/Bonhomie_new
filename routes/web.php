@@ -20,16 +20,22 @@ Route::post('/signin', 'Auth\UserLoginController@login');
 
 //Admin
 Route::resource('events','EventController');
-Route::resource('student','StudentController');
 Route::get('/allevents','HomeController@index')->name('allevents');
 Route::get('/addevent','HomeController@view_addevent');
 Route::get('/coordinators','HomeController@view_coordinators');
 Route::get('/requests','HomeController@view_requests');
 Route::get('/participants','HomeController@view_participants');
 
+
 //Admin filter
 Route::post('/participants','StudentController@filterStudents');
 Route::post('/coordinators','StudentController@filterCoordinators');
+
+//Student
+Route::resource('student','StudentController');
+Route::get('/profile','StudentController@profile')->name('profile');
+Route::get('/updateprofile','StudentController@updateprofile');
+Route::get('/editprofile','StudentController@editprofile');
 
 
 //Main Routes

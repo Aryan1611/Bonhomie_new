@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Auth;
 use App\Student;
+use Illuminate\Support\Facades\Hash;
+
 // use App\Event;
 
 class UserLoginController extends Controller
@@ -33,11 +35,9 @@ class UserLoginController extends Controller
         $errors = new MessageBag;
 
             if(Auth::guard('student')->attempt(['email' => $request->email, 'password' => $request->password])){
-                // return redirect()->intended('/');
-                // $events = Event::all();
-                // return view('students.profile')->with('events',$events);
                 $student = Student::where('email',$request->email)->first();
-                return view('students.profile')->with('student',$student);
+                Controller::user_id($student->id);
+                return redirect()->intended('/');
             }
             $errors = new MessageBag(['password' => ['Invalid email or password.']]);
             return redirect()->back()->withErrors($errors);
