@@ -165,6 +165,9 @@ class StudentController extends Controller
 
     public function profile()
     {
+        if(session('user_id')==0){
+            return redirect()->intended('/');
+        }
         $student = Student::where('id',session('user_id'))->first();
         return view('students.profile')->with('student',$student);
     }
@@ -189,5 +192,11 @@ class StudentController extends Controller
     {      
         $student = Student::where("id", session('user_id'))->first();
         return view('students.editprofile')->with('student',$student);
+    }
+
+    public function logout()
+    {
+        Controller::user_id(0);
+        return redirect()->intended('/');
     }
 }

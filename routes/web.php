@@ -40,6 +40,8 @@ Route::resource('student','StudentController');
 Route::get('/profile','StudentController@profile')->name('profile');
 Route::get('/updateprofile','StudentController@updateprofile');
 Route::get('/editprofile','StudentController@editprofile');
+Route::get('/logout','StudentController@logout');
+
 
 
 //Main Routes

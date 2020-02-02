@@ -39,6 +39,7 @@
                                                 </a>
                                                 </td>                                           
                                             </tr>
+<h1><a href = "{{action('StudentController@logout')}}">Logout</a></h1>
 @if($student->flag==0)
 <a href="{{action('StudentController@update',$student)}}">Enroll as Coordinator</a>
 @else
