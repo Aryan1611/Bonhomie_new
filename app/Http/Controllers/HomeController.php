@@ -77,13 +77,11 @@ class HomeController extends Controller
         return view('admin.requests')->with('student',$student);
     }
 
-    public function participation()
+    public function participation(Request $request)
     {
-        $event_participation = Event_participation  ::all();
-        // dd($event_participation);
-        $events = Event::all();
-        return view('admin.participation')->with(array('events'=>$events));
-        return view('admin.participation')->with('event_participation',$event_participation);
+        
+        $loop_event = Event::all();        
+        return view('admin.participation',compact('loop_event')); 
     }
     
 }

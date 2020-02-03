@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Event_participation;
 use Illuminate\Http\Request;
+use App\Student;
+use App\Event;
 
 class EventParticipationController extends Controller
 {
@@ -14,7 +16,7 @@ class EventParticipationController extends Controller
      */
     public function index()
     {
-        //
+        //        
     }
 
     /**
@@ -35,7 +37,7 @@ class EventParticipationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->event_name);
     }
 
     /**
@@ -46,7 +48,7 @@ class EventParticipationController extends Controller
      */
     public function show(Event_participation $event_participation)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -57,7 +59,8 @@ class EventParticipationController extends Controller
      */
     public function edit(Event_participation $event_participation)
     {
-        //
+        dd($request);
+        
     }
 
     /**
@@ -69,7 +72,10 @@ class EventParticipationController extends Controller
      */
     public function update(Request $request, Event_participation $event_participation)
     {
-        //
+        $event_participation->event_id=$request->event_id;
+        $event_participation->student_id=session('user_id');
+        $event_participation->save();
+        return ("Thanks");
     }
 
     /**
@@ -80,6 +86,9 @@ class EventParticipationController extends Controller
      */
     public function destroy(Event_participation $event_participation)
     {
-        //
+        dd($request);
+        
     }
+
+    
 }

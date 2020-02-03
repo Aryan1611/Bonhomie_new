@@ -32,8 +32,12 @@ Route::get('/participation','HomeController@participation');
 Route::post('/participants','StudentController@filterStudents');
 Route::post('/coordinators','StudentController@filterCoordinators');
 Route::post('/allevents','HomeController@index');
+Route::post('/participation','HomeController@participation');
 
 
+
+//Events
+Route::resource('eventparticipation','EventParticipationController');
 
 //Student
 Route::resource('student','StudentController');

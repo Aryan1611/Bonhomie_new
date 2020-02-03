@@ -30,7 +30,7 @@
               	</div>
               	<h3 class="heading mb-3"><a href="/event-details">Placement Mania</a></h3>
                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="/event-details" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Participate</a></p>
+                <p><a href="/event-details" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>View Detials</a></p>
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
               	</div>
               	<h3 class="heading mb-3"><a href="#">Rangoli Making</a></h3>
                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Participate</a></p>
+                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>View Details</a></p>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@
               	</div>
               	<h3 class="heading mb-3"><a href="#">Dodge Ball</a></h3>
                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Participate</a></p>
+                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>View Details</a></p>
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@
               	</div>
               	<h3 class="heading mb-3"><a href="#">Box Cricket</a></h3>
                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Participate</a></p>
+                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>View Details</a></p>
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@
               	</div>
               	<h3 class="heading mb-3"><a href="#">Paper Presentation</a></h3>
                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Participate</a></p>
+                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>View Details</a></p>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@
               	</div>
               	<h3 class="heading mb-3"><a href="#">Hackathon</a></h3>
                 <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Participate</a></p>
+                <p><a href="#" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>View Details</a></p>
               </div>
             </div>
           </div>
@@ -139,8 +139,13 @@
               	</div>
               	<h3 class="heading mb-3"><a href="/event-details">{{$e->event_name}}</a></h3>
                   <p>{{$e->event_name}}</p>
-                  <p><a href="/event-details" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>Participate</a></p>
-              </div>
+                  <p><a href="/event-details" class="btn-custom"><span class="ion-ios-arrow-round-forward mr-3"></span>View Details</a></p>
+                  <form action="{{action('EventParticipationController@update',$e)}}" method="POST" onsubmit="return confirm('Confirm Participation?')">
+                    @csrf
+                    <input type ='hidden' value='{{$e->id}}' name ='event_id'>
+                    @method('PUT')
+                    <button title="Participate" type="submit">Participate</button>
+                  </form>
             </div>
         </div>
         @endforeach

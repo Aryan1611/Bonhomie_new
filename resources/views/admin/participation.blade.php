@@ -9,14 +9,14 @@
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Participation</h4>
-                        <form action='/coordinators' method="POST">
+                        <form action='/participation' method="POST">
                             @csrf
                             <label>Event Name</label>
                                 <select name="event_name" old>
                                     <option value="all">All</option>
-                                    @foreach ($events as $e)
-                                        <option value={{$e->event_name}}>{{$e->event_name}}</option>
-                                    @endforeach
+                                     @foreach ($loop_event as $e)
+                                        <option name="event_name" value={{$e->event_name}}>{{$e->event_name}}</option>
+                                    @endforeach 
                                 </select>
                                 <input type="submit" value="Go" class="btn btn-primary">
                         </form>
@@ -59,26 +59,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @php
+                                       {{--  @php
                                             $no = 0;
                                         @endphp
-                                         {{-- @if(count($coordinators) == 0)                                         
+                                        @if(is_null($event))                                         
                                          <tr>
                                              <td >
-                                             NO STUDENTS AVAILABLE
+                                             NO DETAILS AVAILABLE YET
                                              </td>
                                              </tr>
                                          @else
-                                         @foreach ($coordinators as $c)
+                                         @foreach($event as $e)
                                             <tr>
                                                 <td>@php echo ++$no @endphp</td>
-                                                <td>{{$c->name}}</td>
-                                                <td>{{$c->phone}}</td>
-                                                <td>{{$c->email}}</td>
-                                                <td>{{$c->rollno}}</td>
+                                                <td>{{$e->event_name}}</td>
+                                                
                     
                                         @endforeach
-                                        @endif --}}
+                                        @endif   --}}
                                     </tbody>
                                 </table>
                             </div>
